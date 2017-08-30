@@ -37,8 +37,8 @@ gulp.task('sass', function(){
 gulp.task('js', function(){
 });
 
-//Runs all the commands to build website from src/ to dist/
-gulp.task('build', function(){
+//Minifies html files from src/ and moves to dist/
+gulp.task('html', function(){
 });
 
 //Moves all files from src/ (such as images) to dist/
@@ -47,12 +47,13 @@ gulp.task('build', function(){
 gulp.task('other_files', function(){
 });
 
+//Runs all the tasks mandatory to building the website
 gulp.task('default', function(){
 	run_seq(
     'sass',
-	  'build',
-	  'tinify',
-		'minify',
-	  'cleanup'
+	  'js',
+    'html',
+		'other_files',
+	  'bootstrap'
   );
 });
