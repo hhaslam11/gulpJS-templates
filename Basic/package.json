@@ -1,0 +1,17 @@
+{
+  "name": "Project name",
+  "version": "0.0.0",
+  "description": "Project description",
+  "author": {
+    "email": "dev@company.com",
+    "name": "FirstName LastName",
+    "url": "http://www.project-site.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user/project.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
