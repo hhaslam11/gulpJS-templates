@@ -10,7 +10,7 @@ var clean_js = require('gulp-minify');
 gulp.task('bootstrap', function(){
   //css
   gulp.src(['node_modules/bootstrap/less/bootstrap.less', 'src/less/*.less'])
-    .pipe(sass())
+    .pipe(less())
     .pipe(clean_css({compatibility: 'ie8'}))
     .pipe(gulp.dest("dist/css"));
 
