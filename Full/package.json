@@ -12,6 +12,12 @@
     "url": "git+https://github.com/user/project.git"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-minify": "^1.0.0",
+    "gulp-sass": "^3.1.0",
+    "run-sequence": "^2.1.0"
   }
 }
