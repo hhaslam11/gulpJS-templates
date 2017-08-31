@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var less = require('gulp-less');
 var del = require('del');
 var run_seq = require('run-sequence');
 var clean_html = require('gulp-htmlmin');
@@ -9,13 +9,13 @@ var clean_js = require('gulp-minify');
 //Put's bootstrap files in dist folder
 gulp.task('bootstrap', function(){
   //css
-  gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+  gulp.src(['node_modules/bootstrap/less/bootstrap.less', 'src/less/*.less'])
     .pipe(sass())
     .pipe(clean_css({compatibility: 'ie8'}))
     .pipe(gulp.dest("dist/css"));
 
   //js
-  gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js','node_modules/popper.js/dist/umd/popper.min.js'])
+  gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
     .pipe(clean_js())
     .pipe(gulp.dest("dist/js"));
 });
@@ -25,10 +25,10 @@ gulp.task('del-dist', function(){
 	return del(['dist/']);
 });
 
-//Compiles and minifies all SASS files from src/css/ to dist/css/
-gulp.task('sass', function(){
-    return gulp.src(['./src/css/**/*.scss'])
-      .pipe(sass())
+//Compiles and minifies all LESS files from src/css/ to dist/css/
+gulp.task('less', function(){
+    return gulp.src(['./src/css/**/*.less'])
+      .pipe(less())
       .pipe(clean_css({compatibility: 'ie8'}))
       .pipe(gulp.dest('./dist/css/'));
 });
@@ -50,7 +50,7 @@ gulp.task('other_files', function(){
 //Runs all the tasks mandatory to building the website
 gulp.task('default', function(){
 	run_seq(
-    'sass',
+    'less',
 	  'js',
     'html',
 		'other_files',

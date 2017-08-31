@@ -1,2 +1,2 @@
 # Full GulpJS Template
-A GulpJS template that includes Bootstrap, SASS, and a site minifier.
+A GulpJS template that includes Bootstrap, LESS, and a site minifier.
