@@ -21,6 +21,7 @@ gulp.task('bootstrap', function(){
 });
 
 //Deletes everything in dist/
+//recommended for a fresh build of the site.
 gulp.task('del-dist', function(){
 	return del(['dist/']);
 });
