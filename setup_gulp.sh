@@ -5,4 +5,4 @@ sudo apt-get install -y nodejs-legacy
 sudo apt-get install -y npm
 
 sudo npm install -g gulp
-sudo apt-get autoremove
+sudo apt-get autoremove -y

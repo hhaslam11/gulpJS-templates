@@ -16,7 +16,6 @@ gulp.task('bootstrap', function(){
 
   //js
   gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
-    .pipe(clean_js())
     .pipe(gulp.dest("dist/js"));
 });
 
