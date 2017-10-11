@@ -35,10 +35,21 @@ gulp.task('less', function(){
 
 //Minifies files from src/js/ and moves to dist/js/
 gulp.task('js', function(){
+  return gulp.src(['./src/js/**/*.js'])
+    .pipe(clean_js({
+      ext: {
+            min: '.js'
+        },
+        noSource: {}
+    }))
+    .pipe(gulp.dest('./dist/js/'));
 });
 
 //Minifies html files from src/ and moves to dist/
 gulp.task('html', function(){
+  return gulp.src(['./src/**/*.html'])
+    .pipe(clean_html())
+    .pipe(gulp.dest('./dist/'));
 });
 
 //Moves all files from src/ (such as images) to dist/
