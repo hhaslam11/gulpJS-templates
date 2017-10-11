@@ -27,22 +27,22 @@ gulp.task('del-dist', function(){
 
 //Compiles and minifies all LESS files from src/css/ to dist/css/
 gulp.task('less', function(){
-    return gulp.src(['./src/css/**/*.less'])
+    return gulp.src(['./src/**/*.less'])
       .pipe(less())
       .pipe(clean_css({compatibility: 'ie8'}))
-      .pipe(gulp.dest('./dist/css/'));
+      .pipe(gulp.dest('./dist/'));
 });
 
 //Minifies files from src/js/ and moves to dist/js/
 gulp.task('js', function(){
-  return gulp.src(['./src/js/**/*.js'])
+  return gulp.src(['./src/**/*.js'])
     .pipe(clean_js({
       ext: {
             min: '.js'
         },
         noSource: {}
     }))
-    .pipe(gulp.dest('./dist/js/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 //Minifies html files from src/ and moves to dist/
@@ -53,9 +53,11 @@ gulp.task('html', function(){
 });
 
 //Moves all files from src/ (such as images) to dist/
-//Exluding src/js, src/css, and html files; those are
+//Exluding .js, .less, and .html files; those are
 //moved in other fuctions
 gulp.task('other_files', function(){
+  return gulp.src(['./src/**/*', '!**/*.less', '!**/*.js', '!**/*.html'])
+    .pipe(gulp.dest('./dist/'));
 });
 
 //Runs all the tasks mandatory to building the website
